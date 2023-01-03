@@ -1,0 +1,4 @@
+white black red green blue
+orange yellow magenta brown
+cyan grey beige maroon pink
+violet gold silver 
