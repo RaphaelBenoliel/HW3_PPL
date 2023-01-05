@@ -41,12 +41,12 @@ def str_date(obj):
 
 def make_date(year, month, day):
     """
-       Creates a date object.
-       :param year: An integer representing the year (e.g. 2021).
-       :param month: An integer representing the month (1-12).
-       :param day: An integer representing the day of the month (1-31).
-       :return: A date object.
-       """
+    Creates a date object.
+    :param year: An integer representing the year (e.g. 2021).
+    :param month: An integer representing the month (1-12).
+    :param day: An integer representing the day of the month (1-31).
+    :return: A date object.
+    """
     def get_year():
         """
         Returns the year of the date object.
