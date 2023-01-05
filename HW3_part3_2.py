@@ -183,6 +183,7 @@ def make_mutable_rlist(other=None):
             'slice': rlist_slice, 'extend': extend, 'get_iterator': get_iterator}
 
 
+# Running examples:
 my_list = make_mutable_rlist()
 for x in range(4):
     my_list['push_first'](x)

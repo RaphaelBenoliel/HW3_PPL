@@ -67,7 +67,7 @@ def make_currency(amount, symbol):
     return dispatch
 
 
-# Example usage
+# Running examples:
 c = make_currency(10.50, '$')
 print(c('get_value')('amount'))  # 10.50
 print(c('get_value')('symbol'))  # $

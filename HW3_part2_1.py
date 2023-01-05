@@ -1,7 +1,7 @@
 from functools import reduce
 
 
-def program_one(input_file1, input_file2, input_file3, input_file4):
+def first_program(input_file1, input_file2, input_file3, input_file4):
     """
     Reads the given input files, creates a dictionary mapping words to sets of file names, and writes the
     dictionary to a file.
@@ -53,4 +53,5 @@ def program_one(input_file1, input_file2, input_file3, input_file4):
     return repr('dictionary.txt')
 
 
-print(program_one('fruit.txt', 'colors.txt', 'cities.txt', 'names.txt'))
+# Running the program:
+first_program('fruit.txt', 'colors.txt', 'cities.txt', 'names.txt')

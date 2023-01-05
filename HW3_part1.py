@@ -106,6 +106,7 @@ def make_date(year, month, day):
     return dispatch
 
 
+# Running examples:
 d = make_date(2022, 12, 31)
 print(d)
 year(d)

@@ -2,7 +2,7 @@ import string
 from functools import reduce
 
 
-def program_two(input_file, dictionary_file):
+def second_program(input_file, dictionary_file):
     """
     Reads the given input file and dictionary file, counts the occurrences of each word in the input file, and writes
     the results to a new file.
@@ -28,4 +28,5 @@ def program_two(input_file, dictionary_file):
     return repr('words.txt')
 
 
-print(program_two('text.txt', 'dictionary.txt'))
+# Running the program:
+second_program('text.txt', 'dictionary.txt')
