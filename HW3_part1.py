@@ -81,7 +81,7 @@ def make_date(year, month, day):
             return "October"
         elif month == 11:
             return "November"
-        elif month == 12:
+        else:
             return "December"
 
     def get_day():
