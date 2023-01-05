@@ -69,11 +69,10 @@ def make_currency(amount, symbol):
 
 # Running examples:
 c = make_currency(10.50, '$')
-print(c('get_value')('amount'))  # 10.50
-print(c('get_value')('symbol'))  # $
-c('set_value')('amount', 50)
-print(c('get_value')('amount'))  # 50
-print(c('str')())  # $50.00
-c('convert')(lambda x: x * 3.87, '₪')
-print(c('str')())  # NIS 193.50
+print(c('get_value')('amount'))
 print(c('get_value')('symbol'))
+c('set_value')('amount', 50)
+print(c('get_value')('amount'))
+print(c('str')())
+c('convert')(lambda x: x * 3.87, '₪')
+print(c('str')())

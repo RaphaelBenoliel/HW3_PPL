@@ -1,5 +1,3 @@
-
-
 empty_rlist = None
 
 
