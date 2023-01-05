@@ -5,14 +5,13 @@ with open('words.txt', 'r') as f:
 
 
 # Define a function that generates the message for a given tuple
-def generate_message(t):
+def generate_message(tup):
     """
-    Generates a message for a given tuple.
-    Parameters: t (tuple): A tuple consisting of a word, the number of times it appears in the text, and the categories
-     it belongs to.
-    Returns: str: A message indicating why the word passed the filter.
+    Generates a message for the given tuple.
+    :param tup: A tuple containing a word, the number of occurrences of that word, and a set of categories to which the word belongs.
+    :return: A string representing the message.
     """
-    word, occurrences, categories = t
+    word, occurrences, categories = tup
     if occurrences >= 5 and len(categories) > 1:
         return f"'{word}' because it belongs to at least two categories and because it appears at least five times"
     elif occurrences >= 5:
@@ -22,29 +21,17 @@ def generate_message(t):
 
 
 # Define the filter function
-def filter_func(t):
+def filter_func(tup):
     """
-    Filters a tuple based on the conditions specified in the task.
-
-    Parameters:
-    t (tuple): A tuple consisting of a word, the number of times it appears in the text, and the categories it belongs to.
-
-    Returns:
-    bool: `True` if the tuple passes the filter, `False` otherwise.
+    Filters tuples based on the number of occurrences and number of categories.
+    :param tup: A tuple containing a word, the number of occurrences of that word, and a set of categories to which the word belongs.
+    :return: True if the tuple meets the filtering criteria, False otherwise.
     """
-    word, occurrences, categories = t
+    word, occurrences, categories = tup
     return occurrences >= 5 or len(categories) > 1
 
-"""
-Filters the tuples in the words.txt file and prints a message for each word that passes the filter.
-"""
-# Filter the tuples using the filter function
+
 filtered_tuples = filter(filter_func, tuples)
-
-# Generate the messages for the filtered tuples using the generate_message function
 messages = map(generate_message, filtered_tuples)
-
-# Join the messages into a single string
 result = '\n'.join(messages)
-
 print(result)
