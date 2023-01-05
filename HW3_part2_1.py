@@ -3,14 +3,14 @@ from functools import reduce
 
 def program_one(input_file1, input_file2, input_file3, input_file4):
     """
-        Reads the given input files, creates a dictionary mapping words to sets of file names, and writes the
-        dictionary to a file.
-        :param input_file1: A string representing the file path of the first input file.
-        :param input_file2: A string representing the file path of the second input file.
-        :param input_file3: A string representing the file path of the third input file.
-        :param input_file4: A string representing the file path of the fourth input file.
-        :return: A string representing the file path of the dictionary file.
-        """
+    Reads the given input files, creates a dictionary mapping words to sets of file names, and writes the
+    dictionary to a file.
+    :param input_file1: A string representing the file path of the first input file.
+    :param input_file2: A string representing the file path of the second input file.
+    :param input_file3: A string representing the file path of the third input file.
+    :param input_file4: A string representing the file path of the fourth input file.
+    :return: A string representing the file path of the dictionary file.
+    """
     def process_file(file_name):
         """
         Reads the given file, splits its contents into a list of words, and returns the set of lowercase words.
@@ -43,7 +43,6 @@ def program_one(input_file1, input_file2, input_file3, input_file4):
                 dic[word] = {file_name}
             return dic
         return reduce(update_word, file_w, dict_arg)
-
     file_names = [input_file1, input_file2, input_file3, input_file4]
     file_words = map(process_file, file_names)
     file_names = map(lambda fname: fname.split('.txt')[0], file_names)
