@@ -1,5 +1,8 @@
 
 
+empty_rlist = None
+
+
 def make_rlist(r_first, r_rest):
     """
     Constructs a new immutable rlist with the given first element and rest.
@@ -56,7 +59,7 @@ def make_mutable_rlist(other=None):
     """
     Create a new mutable rlist with the optional parameter 'other' as its initial contents.
     :param other: The initial contents of the rlist (optional)
-    :return: The new mutable rlist
+    :return: a dispatch dictionary to activate the appropriate function.
     """
     contents = empty_rlist
     if other is not None:
@@ -74,23 +77,37 @@ def make_mutable_rlist(other=None):
 
     def get_item(ind):
         """
-            Get the item at the given index of the rlist.
-            :param ind: The index of the item to get.
-            :return: The item at the given index.
-            """
+        Get the item at the given index of the rlist.
+        :param ind: The index of the item to get.
+        :return: The item at the given index.
+        """
         return getitem_rlist(contents, ind)
 
     def push_first(value):
+        """
+        Push an item to the front of the rlist.
+        :param value: The item to push to the front of the rlist
+        """
         nonlocal contents
         contents = make_rlist(value, contents)
 
     def pop_first():
+        """
+        Pop the first item from the front of the rlist.
+        :return: The popped item
+        """
         nonlocal contents
         fst = first(contents)
         contents = rest(contents)
         return fst
 
     def rlist_slice(start, end):
+        """
+        Get a slice of the rlist from the specified start index to the specified end index.
+        :param start: The start index include to slice
+        :param end: The end index not include to slice
+        :return: a new mutable rlist with The slice
+        """
         new = make_mutable_rlist()
         result = make_mutable_rlist()
         current = contents
@@ -107,6 +124,10 @@ def make_mutable_rlist(other=None):
         return result
 
     def extend(other_list):
+        """
+        Extend the rlist with the items in the specified other list.
+        :param other_list: The other list to extend the rlist with
+        """
         other_size = other_list['length']()
         curr_size = length()
         new_list = empty_rlist
@@ -118,6 +139,9 @@ def make_mutable_rlist(other=None):
         contents = new_list
 
     def rlist_str():
+        """
+        Print the string representation of the rlist.
+        """
         string = '['
         current = contents
         while current is not empty_rlist:
@@ -130,14 +154,26 @@ def make_mutable_rlist(other=None):
         print(string)
 
     def get_iterator():
+        """
+        Create an iterator object for the rlist.
+        :return: a dispatch dictionary to activate the appropriate function.
+        """
         i = 0
 
         def hasNext():
+            """
+            Check if there are more elements in the iterator.
+            :return: True if there are more elements, False otherwise
+            """
             if i == length():
                 return False
             return True
 
         def Next():
+            """
+            Get the next element in the iterator.
+            :return: The next element in the iterator
+            """
             nonlocal i
             i += 1
             if i - 1 < length():
@@ -147,7 +183,6 @@ def make_mutable_rlist(other=None):
             'slice': rlist_slice, 'extend': extend, 'get_iterator': get_iterator}
 
 
-empty_rlist = None
 my_list = make_mutable_rlist()
 for x in range(4):
     my_list['push_first'](x)
