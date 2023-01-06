@@ -17,7 +17,7 @@ def make_currency(amount, symbol):
         if msg == 'amount':
             return amount
         else:
-            return symbol
+            return repr(symbol)
 
     def set_value(msg, value):
         """
@@ -48,7 +48,7 @@ def make_currency(amount, symbol):
         Returns a string representation of the currency object.
         :return: A string in the format "symbolamount" (e.g. "$100.00")
         """
-        return f"{symbol}{amount:.2f}"
+        return f"'{symbol}{amount:.2f}'"
 
     def dispatch(message):
         """
