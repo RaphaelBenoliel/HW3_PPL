@@ -26,9 +26,9 @@ def third_program():
         condition3 = len(categories) > 1
         condition_tup = (condition1, condition2, condition3)
         dic_res = {(True, True, True): f"'{word}' because it belongs to at least two categories and because it"
-                                 f" appears at least five times", (False, True, False): f"'{word}' because it "
-                                 f"appears at least five times", (False, False, True): f"'{word}' because it belongs "
-                                 f"to at least two categories"}
+                                       f" appears at least five times",
+                   (False, True, False): f"'{word}' because it appears at least five times",
+                   (False, False, True): f"'{word}' because it belongs to at least two categories"}
         return dic_res[condition_tup]
     filtered_tuples = filter(filter_func, tuples)
     messages = map(generate_message, filtered_tuples)
